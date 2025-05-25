@@ -13,12 +13,12 @@ async def subscribe(app, message):
         try:
           user = await app.get_chat_member(FORCE_SUB, message.from_user.id)
           if str(user.status) == "ChatMemberStatus.BANNED":
-              await message.reply_text("You are Banned. Contact -- Team SPY")
+              await message.reply_text("You are Banned. Contact -- @UncleChipssBot")
               return 1
         except UserNotParticipant:
             link = await app.export_chat_invite_link(FORCE_SUB)
             caption = f"Join our channel to use the bot"
-            await message.reply_photo(photo="https://graph.org/file/d44f024a08ded19452152.jpg",caption=caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Now...", url=f"{link}")]]))
+            await message.reply_photo(photo="https://ibb.co/8LbfDH27",caption=caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Now...", url=f"{link}")]]))
             return 1
         except Exception as ggn:
             await message.reply_text(f"Something Went Wrong. Contact admins... with following message {ggn}")
@@ -31,24 +31,24 @@ async def set(_, message):
         return
      
     await app.set_bot_commands([
-        BotCommand("start", "🚀 Start the bot"),
-        BotCommand("batch", "🫠 Extract in bulk"),
-        BotCommand("login", "🔑 Get into the bot"),
-        BotCommand("setbot", "🧸 Add your bot for handling files"),
-        BotCommand("logout", "🚪 Get out of the bot"),
-        BotCommand("adl", "👻 Download audio from 30+ sites"),
-        BotCommand("dl", "💀 Download videos from 30+ sites"),
-        BotCommand("status", "⟳ Refresh Payment status"),
-        BotCommand("transfer", "💘 Gift premium to others"),
-        BotCommand("add", "➕ Add user to premium"),
-        BotCommand("rem", "➖ Remove from premium"),
-        BotCommand("rembot", "🤨 Remove your custom bot"),
-        BotCommand("settings", "⚙️ Personalize things"),
-        BotCommand("plan", "🗓️ Check our premium plans"),
-        BotCommand("terms", "🥺 Terms and conditions"),
-        BotCommand("help", "❓ If you're a noob, still!"),
-        BotCommand("cancel", "🚫 Cancel login/batch/settings process"),
-        BotCommand("stop", "🚫 Cancel batch process")
+        BotCommand("start", "Check I'm Alive ⚡️"),
+        BotCommand("batch", "Extract in bulk 🔥"),
+        BotCommand("login", "Login To Your Account 🔑"),
+        BotCommand("logout", "Logout Your Account 🔓"),
+        BotCommand("adl", "Download audio from 30+ sites 📩"),
+        BotCommand("dl", "Download videos from 30+ sites 🎊"),
+        BotCommand("status", "Refresh Payment status 🔄"),
+        BotCommand("transfer", "Gift premium to others 🎁"),
+        BotCommand("add", "Add user to premium ➕"),
+        BotCommand("rem", "Remove user from premium ‼️"),
+        BotCommand("setbot", "Add your bot for handling files 🧸"),
+        BotCommand("rembot", "Remove your custom bot ⚠️"),
+        BotCommand("settings", "Configure Your Settings ⚙️"),
+        BotCommand("plan", "Check our premium plans 🗓️"),
+        BotCommand("terms", "Terms and conditions to use the bot 🙂"),
+        BotCommand("help", "Help Menu To Use The Bot 💠"),
+        BotCommand("cancel", "Cancel login/batch/settings process 🛑"),
+        BotCommand("stop", "Cancel batch process ❌")
     ])
  
     await message.reply("✅ Commands configured successfully!")
@@ -171,7 +171,7 @@ async def terms(client, message):
     buttons = InlineKeyboardMarkup(
         [
             [InlineKeyboardButton("📋 See Plans", callback_data="see_plan")],
-            [InlineKeyboardButton("💬 Contact Now", url="https://t.me/kingofpatal")],
+            [InlineKeyboardButton("💬 Contact Now", url="https://t.me/UncleChipssBot")],
         ]
     )
     await message.reply_text(terms_text, reply_markup=buttons)
@@ -180,7 +180,7 @@ async def terms(client, message):
 @app.on_message(filters.command("plan") & filters.private)
 async def plan(client, message):
     plan_text = (
-        "> 💰 **Premium Price**:\n\n Starting from $2 or 200 INR accepted via **__Amazon Gift Card__** (terms and conditions apply).\n"
+        "> 💰 **Premium For This Bot Is Free**:\n\n Just Contact at @UncleChipssBot  (terms and conditions apply).\n"
         "📥 **Download Limit**: Users can download up to 100,000 files in a single batch command.\n"
         "🛑 **Batch**: You will get two modes /bulk and /batch.\n"
         "   - Users are advised to wait for the process to automatically cancel before proceeding with any downloads or uploads.\n\n"
