@@ -34,7 +34,7 @@ async def status_handler(event):
         bot_active = True
     
     # Add premium status check
-    premium_status = "❌ Not a premium member"
+    premium_status = "❌ Not a premium member. Contact at @UncleChipssBot & take free premium"
     premium_details = await get_premium_details(user_id)
     if premium_details:
         # Convert to IST timezone
@@ -61,7 +61,7 @@ async def transfer_premium_handler(event):
     sender_name = get_display_name(sender)
     if not await is_premium_user(user_id):
         await event.respond(
-            "❌ You don't have a premium subscription to transfer.")
+            "❌ You don't have a premium subscription to transfer. If you want premium access contact at @UmclechipssBot to get free premium access.")
         return
     args = event.text.split()
     if len(args) != 2:
@@ -145,7 +145,7 @@ async def remove_premium_handler(event):
         return
     if not await is_premium_user(target_user_id):
         await event.respond(
-            f'❌ User {target_user_id} does not have a premium subscription.')
+            f'❌ User {target_user_id} does not have a premium subscription. If you want premium access contact at @UmclechipssBot to get free premium access.')
         return
     try:
         target_name = 'Unknown'
@@ -158,7 +158,7 @@ async def remove_premium_handler(event):
             target_user_id})
         if result.deleted_count > 0:
             await event.respond(
-                f'✅ Premium subscription successfully removed from {target_name} ({target_user_id}).'
+                f'✅ Premium subscription successfully removed from {target_name} ({target_user_id}). If you want premium access contact at @UmclechipssBot to get free premium access'
                 )
             try:
                 await bot_client.send_message(target_user_id,
